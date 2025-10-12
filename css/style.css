@@ -1,0 +1,192 @@
+/* === FUENTES === */
+h1, h2, h3, nav a {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+body, p {
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  margin: 0;
+  background: #0b0b0b;
+}
+
+/* === HEADER === */
+.main-header {
+  text-align: center;
+  background-color: #000;
+}
+
+.header-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* === MENÚ === */
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  display: inline-block;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: #63b50d;
+}
+
+/* === HERO === */
+.hero {
+  background: url('../img/hero.jpg') center/cover no-repeat;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.btn {
+  background: #63b50d;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* === MASCOTA === */
+.mascota {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.mascota img {
+  width: 250px;
+}
+
+/* === LINEUP === */
+.lineup {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.grilla {
+  width: 80%;
+  max-width: 800px;
+  border-radius: 12px;
+}
+
+/* === MERCH === */
+.merch {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  background: #111;
+  color: #aaa;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+/* Animación de la mascota */
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); } /* sube 15px */
+  100% { transform: translateY(0); }
+}
+
+#mascota {
+  animation: flotar 3s ease-in-out infinite; /* duración 3s, se repite */
+}
+/* ==============================
+   SECCIÓN DE ENTRADAS
+============================== */
+
+.entradas {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  background-color: #111;
+}
+
+.entradas h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #63b50d;
+}
+.detalle-entradas h3 {
+  text-align: center;
+}
+
+.entradas p {
+  margin-bottom: 30px;
+}
+
+.tickets button {
+  background: #63b50d;
+  border: none;
+  color: #111;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  font-family: 'Raleway', sans-serif;
+}
+
+.tickets button:hover {
+  transform: scale(1.1);
+  background: #63b50d;
+}
+
+.mascota-ticket {
+  margin-top: 40px;
+}
+
+#mascota-ticket {
+  width: 250px;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+.detalle-entradas {
+  margin-top: 50px;
+  text-align: left;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.detalle-entradas ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detalle-entradas li {
+  margin: 10px 0;
+  background: #1b1b1b;
+  padding: 15px;
+  border-radius: 10px;
+}
