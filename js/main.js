@@ -83,3 +83,12 @@ function updateCarrusel() {
   const itemWidth = carrusel.children[0].offsetWidth + 20; // 20 = gap
   carrusel.style.transform = `translateX(${-index * itemWidth}px)`;
 }
+
+
+// Menu hamburguesa
+const mobileMenu = document.getElementById('mobile-menu');
+const menuLinks = document.querySelector('.menu-links');
+
+mobileMenu.addEventListener('click', () => {
+  menuLinks.classList.toggle('show');
+});
