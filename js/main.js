@@ -29,3 +29,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+// Seleccionar todos los botones de entradas
+const botones = document.querySelectorAll(".tickets button");
+const popup = document.getElementById("popup");
+const imagenEntrada = document.getElementById("imagenEntrada");
+
+// Cuando se hace clic en cualquier botón
+botones.forEach(boton => {
+  boton.addEventListener("click", () => {
+    const tipo = boton.dataset.type;
+
+    // Cambiar la imagen según el tipo
+    if (tipo === "general") {
+      imagenEntrada.src = "img/entrada-general.jpg";
+    } else if (tipo === "vip") {
+      imagenEntrada.src = "img/entrada-vip.jpg";
+    } else if (tipo === "allaccess") {
+      imagenEntrada.src = "img/entrada-allaccess.jpg";
+    }
+
+    // Mostrar el popup
+    popup.style.display = "flex";
+  });
+});
+
+// Función para cerrar el popup
+function cerrarPopup() {
+  popup.style.display = "none";
+}
