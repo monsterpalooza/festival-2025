@@ -57,3 +57,29 @@ botones.forEach(boton => {
 function cerrarPopup() {
   popup.style.display = "none";
 }
+
+
+
+
+const carrusel = document.querySelector('.carrusel');
+const prevBtn = document.querySelector('.carrusel-btn.prev');
+const nextBtn = document.querySelector('.carrusel-btn.next');
+
+let index = 0;
+
+prevBtn.addEventListener('click', () => {
+  index--;
+  if (index < 0) index = carrusel.children.length - 1;
+  updateCarrusel();
+});
+
+nextBtn.addEventListener('click', () => {
+  index++;
+  if (index >= carrusel.children.length) index = 0;
+  updateCarrusel();
+});
+
+function updateCarrusel() {
+  const itemWidth = carrusel.children[0].offsetWidth + 20; // 20 = gap
+  carrusel.style.transform = `translateX(${-index * itemWidth}px)`;
+}
