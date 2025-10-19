@@ -9,7 +9,7 @@ body, p {
   font-family: 'Raleway', sans-serif;
   color: #fff;
   margin: 0;
-  background: #0b0b0b;
+  background: #0b0b0b00;
 }
 
 /* === HEADER === */
@@ -462,7 +462,7 @@ body::before {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.479);
   z-index: 1;
 }
 
@@ -505,7 +505,7 @@ body::before {
 .mis-vis .vision {
   flex: 1 1 300px;
   max-width: 400px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0);
   padding: 20px;
   border-radius: 15px;
   text-align: center; /* centrado */
@@ -692,3 +692,107 @@ body::before {
 }
 
 
+/* Sección Merch */
+.merch {
+  text-align: center;
+  margin: 60px 20px;
+}
+
+.merch a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff; /* texto blanco por defecto */
+  padding: 30px 50px;
+  transition: all 0.3s ease;
+}
+
+.merch a:hover {
+  color: #63b50d; /* cambia a verde al pasar el mouse */
+  transform: scale(1.05);
+}
+
+/* Si querés que el color cambie cuando estás en merch.html, se puede con clase active */
+.merch a.active {
+  color: #63b50d; /* verde cuando la sección está "activa" */
+}
+
+
+.lineup {
+  text-align: center;
+  margin: 60px 20px;
+  background-color: rgba(11, 11, 11, 0.85); /* negro difuminado */
+  padding: 40px 20px;
+  border-radius: 15px;
+}
+
+.lineup a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.lineup a:hover {
+  color: #63b50d;
+  transform: scale(1.05);
+}
+
+.lineup a.active {
+  color: #63b50d;
+}
+
+
+/* Secciones principales */
+.hero,
+.mascota,
+.lineup,
+.merch {
+  background-color: rgba(11, 11, 11, 0.926); /* negro difuminado */
+  padding: 60px 20px;                       /* espacio interno */
+  margin: 0;                                 /* quitar márgenes */
+  border-radius: 0;                          /* opcional: sin bordes redondeados */
+}
+
+/* Body sin padding extra */
+body {
+  margin: 0;                                 /* sin margen */
+  background-color: #0b0b0b;                 /* color base si no carga textura */
+  background-image: url('../img/texture.jpg'); /* textura */
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: fixed;              /* queda fijo al hacer scroll */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #111;
+  color: #aaa;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+
+
+/* ===== Botones universales con efecto tipo tarjetas de mascotas ===== */
+.tickets button,
+.btn,
+.merch a {
+  background-color: #63b50d;
+  border: 2px solid #63b50d;
+  border-radius: 20px;
+  width: 200px;
+  padding: 20px;
+  display: inline-block; /* necesario para margin en <a> */
+  text-align: center;    /* centrado de texto en <a> */
+  margin: 20px 0;        /* separación arriba y abajo */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Hover: efecto de iluminación lateral */
+.tickets button:hover,
+.btn:hover,
+.merch a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #63b50d; /* luz verde alrededor */
+}
