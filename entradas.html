@@ -31,38 +31,41 @@
 
   <!-- 🔹 Sección principal de entradas -->
   <section class="entradas">
-    <h2>Compra tu entrada</h2>
+  <h2>Compra tu entrada</h2>
 
-    <div class="tickets">
-      <button data-type="general">General</button>
-      <button data-type="vip">VIP</button>
-      <button data-type="allaccess">All Access</button>
-    </div>
+  <div class="tickets">
+    <button data-type="general">General</button>
+    <button data-type="vip">VIP</button>
+    <button data-type="allaccess">All Access</button>
+  </div>
 
-    
+  <div class="detalle-entradas">
+    <h3>Tipos de entrada</h3>
+    <ul>
+      <li><strong>General:</strong> acceso a todos los escenarios y zonas comunes.</li>
+      <li><strong>VIP:</strong> incluye acceso preferencial, baños exclusivos y merchandising especial.</li>
+      <li><strong>All Access:</strong> pase total + regalo Monster exclusivo ⚡</li>
+    </ul>
+  </div>
+</section>
 
-    <div class="detalle-entradas">
-      <h3>Tipos de entrada</h3>
-      <ul>
-        <li><strong>General:</strong> acceso a todos los escenarios y zonas comunes.</li>
-        <li><strong>VIP:</strong> incluye acceso preferencial, baños exclusivos y merchandising especial.</li>
-        <li><strong>All Access:</strong> pase total + regalo Monster exclusivo ⚡</li>
-      </ul>
-    </div>
-  </section>
+
 
   <!-- 🔹 Footer -->
   <footer>
     <p>© 2025 MonsterPalooza — Lucero Pavón</p>
   </footer>
-<!-- 🔹 Popup de confirmación -->
+
+<!-- Popup único -->
 <div id="popup" class="popup">
   <div class="popup-content">
-    <h2>🎟️ Entrada adquirida 🎟️</h2>
-    <img id="imagenEntrada" src="" alt="Entrada seleccionada">
-    <button class="cerrar" onclick="cerrarPopup()">Cerrar</button>
+    <p id="mensaje-popup"></p>
+    <img id="imagenEntrada" src="" alt="Entrada adquirida" style="margin-top: 15px; width: 80%; border-radius: 10px;">
+    <button id="cerrar-popup" style="background:#63b50d; color:#fff; margin-top:15px; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;"
+    >Cerrar</button>
   </div>
 </div>
+
 
   <script src="js/main.js"></script>
   
