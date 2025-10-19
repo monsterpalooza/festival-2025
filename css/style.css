@@ -346,17 +346,31 @@ body::before {
   width: 100%;
   height: 100%;
   background: url('../img/texture.jpg') repeat; /* tu textura */
+
   background-size: auto; 
   opacity: 0.30; /* ajusta según lo sutil que quieras */
   z-index: -1; /* detrás de todo */
   pointer-events: none; /* no interfiere con clics */
 }
 
+/* Fondo de toda la sección Merch */
 .merch-section {
   padding: 60px 20px;
   text-align: center;
+  background-color: rgba(11, 11, 11, 0.85); /* negro semi-transparente */
+  width: 100%;           /* ocupa todo el ancho */
+  box-sizing: border-box;
 }
 
+/* Contenedor interno centrado para los productos */
+.merch-container {
+  max-width: 1200px;     /* ancho máximo para contenido */
+  margin: 0 auto;        /* centrado horizontal */
+  border-radius: 15px;   /* opcional, si querés bordes redondeados */
+  padding: 20px;         /* espacio interno */
+}
+
+/* Título */
 .merch-section h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.5rem;
@@ -364,31 +378,23 @@ body::before {
   color: #63b50d;
 }
 
-.carrusel-container {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  overflow: hidden; /* oculta el desbordamiento */
-}
-
-.carrusel {
+/* Grid de productos */
+.productos-grid {
   display: flex;
-  transition: transform 0.5s ease;
-  gap: 20px;
-  pointer-events: none; /* evita scroll táctil */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
 }
 
+/* Tarjeta de producto */
 .producto {
-  min-width: 200px;
   background-color: #1a1a1a;
   border: 2px solid #63b50d;
-  border-radius: 15px;
-  padding: 15px;
+  border-radius: 20px;
+  width: 200px;
+  padding: 20px;
   text-align: center;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  pointer-events: auto; /* permite clic en producto */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .producto img {
@@ -397,50 +403,39 @@ body::before {
   margin-bottom: 10px;
 }
 
-.producto:hover {
+.producto p {
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 15px;
+}
+
+/* Botón comprar */
+.comprar-btn {
+  background-color: #63b50d;
+  color: #fff;
+  border: 2px solid #63b50d;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.comprar-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #63b50d;
 }
 
-.carrusel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #111;
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 10px;
-  z-index: 10;
+/* Frase final */
+.frase-final {
+  margin-top: 50px;
+  font-size: 1.8rem;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #63b50d;
 }
 
-.carrusel-btn:hover {
-  background-color: #333;
-}
-
-.carrusel-btn.prev {
-  left: 10px;
-}
-
-.carrusel-btn.next {
-  right: 10px;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .producto {
-    min-width: 150px;
-  }
-
-  .carrusel-btn {
-    font-size: 1.5rem;
-    padding: 8px;
-  }
-}
-
-
+/* ==============================
+   NOSOTROS
+============================== */
 /* ==============================
    NOSOTROS
 ============================== */
@@ -455,16 +450,25 @@ body::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /* asegura que el pseudo-elemento no se desborde */
 }
 
 .nosotros-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.479);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 11, 11, 0.85); /* negro semi-transparente */
+  z-index: 0; /* detrás del contenido */
+}
+
+/* Contenido real por encima de la capa negra */
+.nosotros-section > * {
+  position: relative;
   z-index: 1;
 }
+
 
 .overlay-text {
   position: relative;
@@ -692,29 +696,7 @@ body::before {
 }
 
 
-/* Sección Merch */
-.merch {
-  text-align: center;
-  margin: 60px 20px;
-}
 
-.merch a {
-  display: inline-block;
-  text-decoration: none;
-  color: #fff; /* texto blanco por defecto */
-  padding: 30px 50px;
-  transition: all 0.3s ease;
-}
-
-.merch a:hover {
-  color: #63b50d; /* cambia a verde al pasar el mouse */
-  transform: scale(1.05);
-}
-
-/* Si querés que el color cambie cuando estás en merch.html, se puede con clase active */
-.merch a.active {
-  color: #63b50d; /* verde cuando la sección está "activa" */
-}
 
 
 .lineup {
@@ -776,8 +758,8 @@ footer {
 
 /* ===== Botones universales con efecto tipo tarjetas de mascotas ===== */
 .tickets button,
-.btn,
-.merch a {
+.btn
+ {
   background-color: #63b50d;
   border: 2px solid #63b50d;
   border-radius: 20px;
@@ -791,8 +773,30 @@ footer {
 
 /* Hover: efecto de iluminación lateral */
 .tickets button:hover,
-.btn:hover,
-.merch a:hover {
+.btn:hover
+{
   transform: scale(1.05);
   box-shadow: 0 0 20px #63b50d; /* luz verde alrededor */
+}
+
+
+
+/* =========================
+   Link Merch como Lineup
+========================= */
+.merch .lineup-link {
+  background: none;       /* quitar cualquier fondo */
+  border: none;           /* quitar borde */
+  padding: 0;             /* sin padding extra */
+  color: #fff;            /* texto blanco */
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  text-decoration: none;  
+  display: inline;        /* como texto normal */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.merch .lineup-link:hover {
+  color: #63b50d;         /* verde al pasar el mouse */
+  transform: scale(1.05); /* efecto leve como lineup */
 }

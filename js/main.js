@@ -114,3 +114,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('[main.js] inicialización completa');
 });
+
+
+// Popup de Merch
+document.querySelectorAll('.comprar-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const producto = btn.dataset.producto;
+    const popup = document.getElementById('popup');
+    const mensaje = document.getElementById('mensaje-popup');
+    if (popup && mensaje) {
+      mensaje.textContent = `🎁 ${producto} adquirido`;
+      popup.classList.add('show');
+    }
+  });
+});
+
+// Cerrar popup
+const cerrarBtn = document.getElementById('cerrar-popup');
+if (cerrarBtn) {
+  cerrarBtn.addEventListener('click', () => {
+    const popup = document.getElementById('popup');
+    if (popup) popup.classList.remove('show');
+  });
+}

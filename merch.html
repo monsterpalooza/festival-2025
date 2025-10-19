@@ -5,55 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Merch | MonsterPalooza</title>
 
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Estilos -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header -->
+<!-- 🔹 Imagen principal (va en todas las páginas) -->
 <header class="main-header">
-  <img src="img/headerr.png" alt="MonsterPalooza" class="header-img">
-
+  <a href="index.html">
+    <img src="img/headerr.png" alt="MonsterPalooza" class="header-img">
+  </a>
+</header>
 
   <nav class="menu" id="menu">
     <ul>
-      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="index.html">Inicio</a></li>
       <li><a href="lineup.html">Lineup</a></li>
       <li><a href="entradas.html">Entradas</a></li>
-      <li><a href="merch.html">Merch</a></li>
+      <li><a href="merch.html" class="active">Merch</a></li>
       <li><a href="mascotas.html">Mascotas</a></li>
       <li><a href="nosotros.html">Nosotros</a></li>
     </ul>
   </nav>
 </header>
 
-  <!-- Sección Merch -->
 <section class="merch-section">
   <h2>Merch Oficial MonsterPalooza</h2>
-  <div class="carrusel-container">
-    <div class="carrusel">
-      <div class="producto"><img src="img/vaso.jpg" alt="Vaso Monster"><p>Vaso Monster</p></div>
-      <div class="producto"><img src="img/remera.jpg" alt="Remera Monster"><p>Remera Monster</p></div>
-      <div class="producto"><img src="img/gorra.jpg" alt="Gorra Monster"><p>Gorra Monster</p></div>
-      <div class="producto"><img src="img/llavero.jpg" alt="Llavero Monster"><p>Llavero Monster</p></div>
-      <div class="producto"><img src="img/sticker.jpg" alt="Sticker Monster"><p>Sticker Monster</p></div>
+  <div class="productos-grid">
+    <div class="producto">
+      <img src="img/vaso.jpg" alt="Vaso Monster">
+      <p>Vaso Monster</p>
+      <button class="btn comprar-btn" data-producto="Vaso Monster">Comprar</button>
     </div>
-    <div class="carrusel-controls">
-      <button class="carrusel-btn prev">&#10094;</button>
-      <button class="carrusel-btn next">&#10095;</button>
+    <div class="producto">
+      <img src="img/remera.jpg" alt="Remera Monster">
+      <p>Remera Monster</p>
+      <button class="btn comprar-btn" data-producto="Remera Monster">Comprar</button>
+    </div>
+    <div class="producto">
+      <img src="img/gorra.jpg" alt="Gorra Monster">
+      <p>Gorra Monster</p>
+      <button class="btn comprar-btn" data-producto="Gorra Monster">Comprar</button>
+    </div>
+    <div class="producto">
+      <img src="img/llavero.jpg" alt="Llavero Monster">
+      <p>Llavero Monster</p>
+      <button class="btn comprar-btn" data-producto="Llavero Monster">Comprar</button>
+    </div>
+    <div class="producto">
+      <img src="img/sticker.jpg" alt="Sticker Monster">
+      <p>Sticker Monster</p>
+      <button class="btn comprar-btn" data-producto="Sticker Monster">Comprar</button>
     </div>
   </div>
+
+  <p class="frase-final">Sentí MonsterPalooza</p>
 </section>
 
+<!-- Popup de confirmación -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <p id="mensaje-popup"></p>
+    <button id="cerrar-popup">Cerrar</button>
+  </div>
+</div>
 
+<footer>
+  <p>© 2025 MonsterPalooza — Lucero Pavón</p>
+</footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 MonsterPalooza — Lucero Pavón</p>
-  </footer>
-
-  <script src="js/carrusel.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
+
