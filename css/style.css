@@ -386,28 +386,6 @@ body::before {
   pointer-events: none; /* no interfiere con clics */
 }
 
-body {
-  font-family: 'Raleway', sans-serif;
-  color: #fff;
-  margin: 0;
-  position: relative; /* necesario para ::before */
-  min-height: 100vh;
-  background-color: #0b0b0b; /* color base para que la textura se mezcle bien */
-}
-
-.merch-link {
-  display: block;
-  color: inherit;       /* mantiene el color del texto */
-  text-decoration: none; /* quita subrayado */
-  cursor: pointer;
-  transition: transform 0.2s, color 0.2s;
-}
-
-.merch-link:hover {
-  color: #63b50d;
-  transform: scale(1.02);
-}
-
 .merch-section {
   padding: 60px 20px;
   text-align: center;
@@ -424,13 +402,14 @@ body {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: hidden; /* oculta el desbordamiento */
 }
 
 .carrusel {
   display: flex;
   transition: transform 0.5s ease;
   gap: 20px;
+  pointer-events: none; /* evita scroll táctil */
 }
 
 .producto {
@@ -443,6 +422,7 @@ body {
   flex-shrink: 0;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
+  pointer-events: auto; /* permite clic en producto */
 }
 
 .producto img {
@@ -486,6 +466,11 @@ body {
 @media screen and (max-width: 768px) {
   .producto {
     min-width: 150px;
+  }
+
+  .carrusel-btn {
+    font-size: 1.5rem;
+    padding: 8px;
   }
 }
 
@@ -585,76 +570,157 @@ body {
   line-height: 1.2;
 }
 
-/* Responsive para móviles */
+/* Ajustes móviles para Nosotros */
 @media (max-width: 768px) {
-  .frase-cierre {
-    font-size: 1.2rem;
+  .overlay-text h1 {
+    font-size: 2.5rem;  /* más chico para móviles */
   }
-  .senti {
-    font-size: 2rem;
+
+  .descripcion {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .mis-vis {
+    flex-direction: column;  /* columnas apiladas verticalmente */
+    gap: 20px;               /* menos espacio entre bloques */
+  }
+
+  .mis-vis .mision,
+  .mis-vis .vision {
+    max-width: 100%;         /* ocupan todo el ancho disponible */
+    padding: 15px;
+  }
+
+  .nosotros-section {
+    padding: 50px 15px;      /* reduce padding general */
   }
 }
 
 
 
-/* Menú hamburguesa */
-.menu-toggle {
-  display: none; /* por defecto oculto en PC */
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 10px;
+
+/* Header y menú */
+.main-header {
+  text-align: center;
+  position: relative;
 }
 
-.menu-toggle span {
-  height: 3px;
-  width: 25px;
-  background-color: #fff;
-  border-radius: 2px;
+.header-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Menu links */
-.menu-links {
-  display: flex;
+.menu {
+  display: flex; /* menú en PC */
   justify-content: center;
   gap: 30px;
-  list-style: none;
-  margin: 0;
+  background: #111;
   padding: 0;
+  margin: 0;
 }
 
-.menu-links li a {
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu a {
   color: #fff;
   text-decoration: none;
   font-size: 1.2rem;
   padding: 10px 0;
 }
 
-.menu-links li a:hover,
-.menu-links li a.active {
+.menu a:hover,
+.menu a.active {
   color: #63b50d;
 }
 
-/* Responsive */
+
+
 @media screen and (max-width: 768px) {
-  .menu-links {
-    display: none; /* ocultamos los links en móvil */
-    flex-direction: column;
-    gap: 20px;
-    background-color: #111;
-    position: absolute;
-    top: 60px; /* ajusta según el header */
+  /* Menu principal en móvil */
+  .menu {
+    display: flex !important;          /* mostrar el menú */
+    justify-content: center;
+  }
+
+  .menu ul {
+    display: flex !important;
+    flex-direction: row;               /* fila horizontal */
+    flex-wrap: wrap;                   /* permite segunda fila */
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+    margin: 0;
     width: 100%;
-    left: 0;
-    padding: 20px 0;
-    z-index: 100;
   }
 
-  .menu-links.show {
-    display: flex;
+  .menu li {
+    width: 33.33%;                     /* 3 elementos por fila */
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
-  .menu-toggle {
-    display: flex;
+  .menu a {
+    display: block;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
   }
+
+  .menu a:hover,
+  .menu a.active {
+    color: #63b50d;
+  }
+}
+
+
+.carrusel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-x: auto; /* permite scroll horizontal en móvil */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 20px; /* espacio para scroll */
+  white-space: nowrap; /* productos en línea */
+}
+
+.carrusel {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+.producto {
+  min-width: 200px;
+  background-color: #1a1a1a;
+  border: 2px solid #63b50d;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #63b50d;
 }
