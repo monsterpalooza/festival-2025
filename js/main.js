@@ -123,7 +123,7 @@ document.querySelectorAll('.comprar-btn').forEach(btn => {
     const popup = document.getElementById('popup');
     const mensaje = document.getElementById('mensaje-popup');
     if (popup && mensaje) {
-      mensaje.textContent = `🎁 ${producto} adquirido`;
+      mensaje.textContent = `${producto} adquirido`;
       popup.classList.add('show');
     }
   });
