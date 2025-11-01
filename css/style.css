@@ -800,3 +800,46 @@ footer {
   color: #63b50d;         /* verde al pasar el mouse */
   transform: scale(1.05); /* efecto leve como lineup */
 }
+
+
+/* 🔹 Contador dentro del hero */
+.hero .contador {
+  text-align: center;
+  margin-top: 2rem;
+  background: rgba(0, 0, 0, 0.6); /* un fondo oscuro semitransparente */
+  padding: 1.5rem;
+  border-radius: 15px;
+  color: #63b50d; /* verde Monster */
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.hero .contador h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.hero #countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero #countdown div {
+  background: #111;
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  min-width: 90px;
+}
+
+.hero #countdown span {
+  font-size: 2rem;
+  display: block;
+}
+
+.hero #countdown p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0;
+}

@@ -137,3 +137,72 @@ if (cerrarBtn) {
     if (popup) popup.classList.remove('show');
   });
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Referencias a los elementos del contador
+  const elWeeks = document.getElementById("weeks");
+  const elDays = document.getElementById("days");
+  const elHours = document.getElementById("hours");
+  const elMinutes = document.getElementById("minutes");
+  const elSeconds = document.getElementById("seconds");
+
+  // Chequeo rápido: si alguno falta, mostramos error en consola y salimos
+  if (!elWeeks || !elDays || !elHours || !elMinutes || !elSeconds) {
+    console.error("Elementos del contador no encontrados. IDs esperados: weeks, days, hours, minutes, seconds");
+    return;
+  }
+
+  // Fecha objetivo: 22 de noviembre de 2025 a las 00:00 (hora local del navegador)
+  const festivalDate = new Date("2025-11-22T00:00:00");
+
+  // Función para añadir ceros a la izquierda (2 dígitos)
+  const pad = (n) => String(n).padStart(2, "0");
+
+  function updateCountdown() {
+    const now = new Date();
+    const distance = festivalDate.getTime() - now.getTime();
+
+    if (distance <= 0) {
+      // Si ya pasó la fecha
+      clearInterval(timerInterval);
+      elWeeks.textContent = "00";
+      elDays.textContent = "00";
+      elHours.textContent = "00";
+      elMinutes.textContent = "00";
+      elSeconds.textContent = "00";
+      // Opcional: mostrar mensaje en la pantalla
+      const cont = document.querySelector(".contador");
+      if (cont) cont.innerHTML = "<h3>¡El festival ha comenzado! 🎉</h3>";
+      return;
+    }
+
+    // Cálculos
+    const totalSeconds = Math.floor(distance / 1000);
+    const seconds = totalSeconds % 60;
+
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const minutes = totalMinutes % 60;
+
+    const totalHours = Math.floor(totalMinutes / 60);
+    const hours = totalHours % 24;
+
+    const totalDays = Math.floor(totalHours / 24);
+    const weeks = Math.floor(totalDays / 7);
+    const days = totalDays % 7;
+
+    // Poner en el DOM con formato
+    elWeeks.textContent = pad(weeks);
+    elDays.textContent = pad(days);
+    elHours.textContent = pad(hours);
+    elMinutes.textContent = pad(minutes);
+    elSeconds.textContent = pad(seconds);
+  }
+
+  // Ejecutar inmediatamente y luego cada segundo
+  updateCountdown();
+  const timerInterval = setInterval(updateCountdown, 1000);
+
+  // Para debug: imprimimos la fecha objetivo en consola
+  console.info("Contador configurado hasta:", festivalDate.toString());
+});
